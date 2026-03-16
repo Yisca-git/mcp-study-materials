@@ -1,0 +1,103 @@
+{
+  "name": "study-materials-mcp",
+  "version": "1.0.0",
+  "description": "MCP server for managing and interacting with study materials",
+  "tools": [
+    {
+      "name": "search_material",
+      "description": "Search study materials using semantic and keyword matching",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "description": "Search query"
+          },
+          "top_k": {
+            "type": "integer",
+            "description": "Number of results to return",
+            "default": 5,
+            "minimum": 1,
+            "maximum": 20
+          }
+        },
+        "required": ["query"]
+      }
+    },
+    {
+      "name": "explain_topic",
+      "description": "Generate explanation of a topic from study materials",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "topic": {
+            "type": "string",
+            "description": "Topic to explain"
+          }
+        },
+        "required": ["topic"]
+      }
+    },
+    {
+      "name": "compare_topics",
+      "description": "Compare two topics based on available materials",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "topic1": {
+            "type": "string",
+            "description": "First topic to compare"
+          },
+          "topic2": {
+            "type": "string",
+            "description": "Second topic to compare"
+          }
+        },
+        "required": ["topic1", "topic2"]
+      }
+    },
+    {
+      "name": "list_topics",
+      "description": "List all recognized topics in study materials",
+      "inputSchema": {
+        "type": "object",
+        "properties": {}
+      }
+    },
+    {
+      "name": "find_knowledge_gaps",
+      "description": "Analyze gaps in knowledge based on available materials",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "description": "Topic to analyze for knowledge gaps"
+          }
+        },
+        "required": ["query"]
+      }
+    },
+    {
+      "name": "categorize_documents",
+      "description": "Categorize documents by topic and subtopic",
+      "inputSchema": {
+        "type": "object",
+        "properties": {}
+      }
+    },
+    {
+      "name": "rank_documents",
+      "description": "Rank documents by importance score",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "topic": {
+            "type": "string",
+            "description": "Optional topic filter"
+          }
+        }
+      }
+    }
+  ]
+}
