@@ -1,6 +1,6 @@
 # study-materials-mcp
 
-A Model Context Protocol (MCP) server that enables AI agents to search, analyze, and interact with study materials using semantic search, topic explanation, and knowledge gap analysis.
+A Model Context Protocol (MCP) server that enables AI agents to search, analyze, and interact with study materials using keyword and similarity-based search, topic explanation, and knowledge gap analysis.
 
 ## Project Structure
 
@@ -74,13 +74,13 @@ Configure your MCP-compatible client to connect to the server. See `mcp.example.
 
 | Tool | Description |
 |------|-------------|
-| `search_material` | Search materials by keyword/semantic query |
+| `search_material` | Search materials using keyword and text similarity matching |
 | `explain_topic` | Generate an explanation of a topic from available materials |
-| `compare_topics` | Compare and contrast two topics |
+| `compare_topics` | Compare two topics and identify common and distinct source materials |
 | `list_topics` | List all recognized topics |
-| `find_knowledge_gaps` | Identify missing information for a topic |
+| `find_knowledge_gaps` | Identify missing information and return recommendations for a topic |
 | `categorize_documents` | Organize documents by topic and subtopic |
-| `rank_documents` | Rank documents by importance score |
+| `rank_documents` | Rank documents by importance score; accepts an optional topic filter |
 
 ## Configuration
 
@@ -94,6 +94,10 @@ Edit `settings.py` or set environment variables:
 | `CHUNK_OVERLAP` | `50` | Overlap between chunks |
 | `DEFAULT_TOP_K` | `5` | Default number of search results |
 | `MAX_TOP_K` | `20` | Maximum number of search results |
+| `SERVER_HOST` | `127.0.0.1` | Server host address |
+| `SERVER_PORT` | `8000` | Server port |
+| `MAX_SNIPPETS` | `3` | Max text snippets per result |
+| `IMPORTANCE_THRESHOLD` | `0.5` | Minimum score for importance ranking |
 
 ## Error Handling
 
